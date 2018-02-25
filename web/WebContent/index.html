@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON TEST</title>
+</head>
+<script type="text/javascript" src="/web/js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+/* var Json = function(){
+	this.mapList;
+	this.key;
+	this.setMapList = function(pmapList){
+		this.mapList = pmapList
+	}
+	this.getMapList = function(){
+		return this.mapList;
+	}
+	this.setKey = function(pKey){
+		this.key = pKey;
+	}
+	this.getKey = function(){
+		return this.key;
+	}
+}
+function getJson(key){
+	var j = new Json();
+	j.setKey(key);
+	j.setMapList([{}]);
+	return j;
+}
+function getJsonData(key){
+	var jList = [];
+	jList.push(getJson(key));
+	return jList;
+}
+function searchJson(jList, key){
+	for(var j of jList){
+		if(j.getKey()===key){
+			return j;
+		}
+	}
+	var j = getJson(key);
+	jList.push(j);
+	return null;
+}
+var jList = getJsonData("test1");
+jList = jList.concat(getJsonData("test2"));
+
+var j = searchJson(jList, "key");
+j = searchJson(jList, "key");
+var mapList = j.getMapList();
+mapList[0]["mapKey1"]="mapValue1";
+var obj = searchJson(jList, "key").getMapList()[0]["mapKey1"];
+alert(obj);
+var jsonStr = JSON.stringify(jList);
+console.log(jsonStr);
+ */
+ 
+ $.ajax({
+	 url:"/web/test.jsp",
+	 success:function(res){
+		 var obj = JSON.parse(res);
+		 alert(obj[0].key);
+	 }
+ 		
+ })
+</script>
+<body>
+<a href="/web/test.jsp">테스트로 이동</a>
+</body>
+</html>
